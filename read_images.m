@@ -2,9 +2,7 @@ function image = read_images(start,stop,cat)
 size = 64;
 full_len = 0;
 for j = 1: 4
-
     len(j) = stop(j)-start(j);% the folder in which ur images exists
-    disp(len(j));
     full_len = full_len + len(j);
 end
 image = zeros(size,size,full_len);

@@ -1,7 +1,7 @@
 cat = {'003.backpack\','012.binoculars\','062.eiffel-tower\','078.fried-egg\'};
-image = zeros(64,64,458);
-image = read_images([1,1,1,1],[131,196,61,70],cat);
-[rows,cols,full_len]=size(image);
+train_image = zeros(64,64,458);
+train_image = read_images([1,1,1,1],[131,196,61,70],cat);
+[rows,cols,full_len]=size(train_image);
 wavelengthMin = 4/sqrt(2);
 wavelengthMax = hypot(rows,cols);
 n = floor(log2(wavelengthMax/wavelengthMin));
@@ -11,7 +11,7 @@ orientation = 0:deltaTheta:(180-deltaTheta);
 g = gabor(wavelength(1),0);
 gabor_train = zeros(64,64,full_len);
 for i = 1 : full_len
-    gabor_train(:,:,i) = imgaborfilt(image(:,:,i),g);
+    gabor_train(:,:,i) = imgaborfilt(train_image(:,:,i),g);
 end
 train = mean(gabor_train,2);
 train = squeeze(train(:,1,:));

@@ -17,12 +17,3 @@ test = mean(gabor_test,2);
 test = squeeze(test(:,1,:));
 test = test';
 test_label = label([132,197,62,71],[151,216,81,90],cat);
-
-class = knnclassify(test,train,train_label,10);
-error = 0;
-for i = 1 : full_len_test
-    if class(i,1) ~= test_label(i,1)
-        error =error+1;
-    end
-end
-accuracy = ((full_len_test-error)/full_len_test)*100;
