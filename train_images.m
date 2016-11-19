@@ -1,3 +1,4 @@
+function [gabor_train,train_label] = train_images()
 cat2 = {'003.backpack\','012.binoculars\','062.eiffel-tower\','078.fried-egg\'};
 size_image = 64;
 train_image = zeros(size_image,size_image,458);
@@ -31,7 +32,9 @@ for j = 1 : full_len
     feature2DImage = reshape(X*coeff(:,1),rows,cols);
     gabor_train(:,:,j) = feature2DImage;
 end
-train = mean(gabor_train,2);
-train = squeeze(train(:,1,:));
-train = train';
-train_label = label([1,1,1,1],[131,196,61,70],cat2);
+% train = mean(gabor_train,2);
+% train = squeeze(train(:,1,:));
+% train = train';
+ train_label = label([1,1,1,1],[131,196,61,70],cat2);
+return;
+end

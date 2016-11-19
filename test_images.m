@@ -1,3 +1,4 @@
+function [gabor_test,test_label] = test_images()
 cat2 = {'003.backpack\','012.binoculars\','062.eiffel-tower\','078.fried-egg\'};
 size_image = 64;
 test_image = zeros(size_image,size_image,458);
@@ -31,7 +32,9 @@ for j = 1 : full_len_test
     feature2DImage = reshape(X*coeff(:,1),rows,cols);
     gabor_test(:,:,j) = feature2DImage;
 end
- test = mean(gabor_test,2);
- test = squeeze(test(:,1,:));
- test = test';
+%  test = mean(gabor_test,2);
+%  test = squeeze(test(:,1,:));
+%  test = test';
  test_label = label([132,197,62,71],[151,216,81,90],cat2);
+ return;
+end

@@ -1,9 +1,10 @@
-label_knn = knnclassify(test,train,train_label,10,'cosine');
+label_knn = knnclassify(feat_test,feat_train,label_train,10,'euclidean');
 error_knn = 0;
+[full_len_test,]=size(label_test);
 for i = 1 : full_len_test
-    if label_knn(i,1) ~= test_label(i,1)
+    if label_knn(i,1) ~= label_test(i,1)
         error_knn =error_knn+1;
     end
 end
 accuracy_knn = ((full_len_test-error_knn)/full_len_test)*100;
-c_knn = confusionmat(test_label,label_knn);
+c_knn = confusionmat(label_test,label_knn);
