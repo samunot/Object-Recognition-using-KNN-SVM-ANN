@@ -1,5 +1,6 @@
 function image = read_images(start,stop,cat)
 size = 64;
+%size = 28;
 full_len = 0;
 path = pwd;
 for j = 1: 4

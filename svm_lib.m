@@ -1,4 +1,4 @@
-libsvmwrite('features.txt', train_label, sparse(feat));
+libsvmwrite('features.txt', label_train, sparse(feat_train));
 system('svm-scale.exe -l -1 -u 1 -s range_file.txt features.txt > scaled_features.txt');
 [label_vector, instance_matrix] = libsvmread('scaled_features.txt');
 
